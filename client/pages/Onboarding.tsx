@@ -250,11 +250,11 @@ export default function Onboarding() {
         <div className="container py-8">
           <div className="max-w-6xl mx-auto">
             {/* Header */}
-            <div className="text-center mb-8">
-              <h1 className="text-3xl font-bold mb-2">
+            <div className="text-center mb-6 lg:mb-8">
+              <h1 className="text-2xl lg:text-3xl font-bold mb-2">
                 AI Investment Onboarding
               </h1>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground text-sm lg:text-base px-4">
                 Let our AI assistant help you create your personalized
                 investment profile
               </p>
@@ -271,23 +271,23 @@ export default function Onboarding() {
               <Progress value={progress} className="h-2" />
             </div>
 
-            <div className="grid lg:grid-cols-3 gap-8">
+            <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
               {/* Chat Interface */}
-              <div className="lg:col-span-2">
-                <Card className="h-[600px] flex flex-col">
-                  <CardHeader className="flex-shrink-0">
-                    <CardTitle className="flex items-center gap-2">
-                      <Bot className="h-5 w-5 text-financial-blue" />
-                      AI Investment Assistant
-                      <Badge variant="secondary" className="ml-auto">
+              <div className="lg:col-span-2 min-w-0">
+                <Card className="h-[500px] lg:h-[600px] flex flex-col">
+                  <CardHeader className="flex-shrink-0 pb-4">
+                    <CardTitle className="flex items-center gap-2 text-base lg:text-lg">
+                      <Bot className="h-5 w-5 text-financial-blue shrink-0" />
+                      <span className="truncate">AI Investment Assistant</span>
+                      <Badge variant="secondary" className="ml-auto shrink-0">
                         Online
                       </Badge>
                     </CardTitle>
                   </CardHeader>
 
-                  <CardContent className="flex-1 flex flex-col">
+                  <CardContent className="flex-1 flex flex-col min-h-0 p-4 lg:p-6">
                     {/* Messages */}
-                    <div className="flex-1 overflow-y-auto space-y-4 mb-4">
+                    <div className="flex-1 overflow-y-auto space-y-3 lg:space-y-4 mb-4 min-h-0">
                       {messages.map((message) => (
                         <div
                           key={message.id}
@@ -300,13 +300,15 @@ export default function Onboarding() {
                         >
                           <div
                             className={cn(
-                              "max-w-[80%] rounded-lg px-4 py-3",
+                              "max-w-[85%] sm:max-w-[80%] rounded-lg px-3 py-2 lg:px-4 lg:py-3",
                               message.sender === "user"
                                 ? "bg-financial-blue text-white"
                                 : "bg-muted",
                             )}
                           >
-                            <p className="text-sm">{message.text}</p>
+                            <p className="text-sm break-words">
+                              {message.text}
+                            </p>
 
                             {/* Options */}
                             {message.options && (
@@ -316,7 +318,7 @@ export default function Onboarding() {
                                     key={index}
                                     variant="outline"
                                     size="sm"
-                                    className="w-full justify-start text-left h-auto p-2"
+                                    className="w-full justify-start text-left h-auto p-2 text-xs sm:text-sm break-words whitespace-normal"
                                     onClick={() => handleOptionClick(option)}
                                     disabled={isLoading}
                                   >
@@ -349,18 +351,19 @@ export default function Onboarding() {
                         e.preventDefault();
                         handleSubmit();
                       }}
-                      className="flex gap-2"
+                      className="flex gap-2 shrink-0"
                     >
                       <Input
                         value={inputValue}
                         onChange={(e) => setInputValue(e.target.value)}
                         placeholder="Type your response..."
                         disabled={isLoading}
-                        className="flex-1"
+                        className="flex-1 min-w-0"
                       />
                       <Button
                         type="submit"
                         disabled={isLoading || !inputValue.trim()}
+                        className="shrink-0"
                       >
                         <Send className="h-4 w-4" />
                       </Button>
@@ -370,30 +373,35 @@ export default function Onboarding() {
               </div>
 
               {/* Profile Summary */}
-              <div className="space-y-6">
+              <div className="space-y-4 lg:space-y-6 min-w-0">
                 <Card>
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <User className="h-5 w-5" />
-                      Your Profile
+                    <CardTitle className="flex items-center gap-2 text-base lg:text-lg">
+                      <User className="h-5 w-5 shrink-0" />
+                      <span className="truncate">Your Profile</span>
                     </CardTitle>
                   </CardHeader>
-                  <CardContent className="space-y-4">
+                  <CardContent className="space-y-3 lg:space-y-4">
                     {profileSummary.map((item, index) => {
                       const Icon = item.icon;
                       return (
-                        <div key={index} className="flex items-center gap-3">
-                          <div className="h-8 w-8 rounded-lg bg-financial-blue-light flex items-center justify-center">
+                        <div
+                          key={index}
+                          className="flex items-center gap-3 min-w-0"
+                        >
+                          <div className="h-8 w-8 rounded-lg bg-financial-blue-light flex items-center justify-center shrink-0">
                             <Icon className="h-4 w-4 text-financial-blue" />
                           </div>
-                          <div className="flex-1">
-                            <p className="text-sm font-medium">{item.label}</p>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-sm font-medium truncate">
+                              {item.label}
+                            </p>
                             <p className="text-sm text-muted-foreground truncate">
                               {item.value}
                             </p>
                           </div>
                           {item.value !== "Not set" && (
-                            <CheckCircle className="h-4 w-4 text-financial-green" />
+                            <CheckCircle className="h-4 w-4 text-financial-green shrink-0" />
                           )}
                         </div>
                       );
