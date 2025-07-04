@@ -138,24 +138,34 @@ export default function Dashboard() {
         <div className="container py-8">
           {/* Header */}
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-8">
-            <div>
-              <h1 className="text-3xl font-bold">Investment Dashboard</h1>
+            <div className="min-w-0 flex-1">
+              <h1 className="text-2xl lg:text-3xl font-bold truncate">
+                Investment Dashboard
+              </h1>
               <p className="text-muted-foreground">
                 Welcome back, Sarah! Here's your portfolio overview.
               </p>
             </div>
-            <div className="flex items-center gap-3">
-              <Button variant="outline" size="sm">
+            <div className="flex flex-wrap items-center gap-2 lg:gap-3 w-full lg:w-auto">
+              <Button
+                variant="outline"
+                size="sm"
+                className="flex-1 sm:flex-none"
+              >
                 <RefreshCw className="h-4 w-4 mr-2" />
-                Refresh
+                <span className="hidden sm:inline">Refresh</span>
               </Button>
-              <Button variant="outline" size="sm">
+              <Button
+                variant="outline"
+                size="sm"
+                className="flex-1 sm:flex-none"
+              >
                 <Edit className="h-4 w-4 mr-2" />
-                Update Profile
+                <span className="hidden sm:inline">Update Profile</span>
               </Button>
-              <Button size="sm">
+              <Button size="sm" className="flex-1 sm:flex-none">
                 <TrendingUp className="h-4 w-4 mr-2" />
-                Invest More
+                <span className="hidden sm:inline">Invest More</span>
               </Button>
             </div>
           </div>
@@ -164,33 +174,36 @@ export default function Dashboard() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <Card className="md:col-span-2">
               <CardHeader>
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div>
                     <CardTitle>Portfolio Value</CardTitle>
                     <CardDescription>Total investment value</CardDescription>
                   </div>
-                  <div className="flex items-center gap-2">
-                    {timeframes.map((timeframe) => (
-                      <Button
-                        key={timeframe}
-                        variant={
-                          selectedTimeframe === timeframe
-                            ? "default"
-                            : "outline"
-                        }
-                        size="sm"
-                        onClick={() => setSelectedTimeframe(timeframe)}
-                      >
-                        {timeframe}
-                      </Button>
-                    ))}
+                  <div className="flex items-center gap-1 overflow-x-auto pb-1">
+                    <div className="flex gap-1 min-w-max">
+                      {timeframes.map((timeframe) => (
+                        <Button
+                          key={timeframe}
+                          variant={
+                            selectedTimeframe === timeframe
+                              ? "default"
+                              : "outline"
+                          }
+                          size="sm"
+                          onClick={() => setSelectedTimeframe(timeframe)}
+                          className="shrink-0"
+                        >
+                          {timeframe}
+                        </Button>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-3xl font-bold">
+                  <div className="flex flex-col sm:flex-row sm:items-baseline gap-2">
+                    <span className="text-2xl sm:text-3xl font-bold truncate">
                       ${portfolioValue.current.toLocaleString()}
                     </span>
                     <div
@@ -206,9 +219,11 @@ export default function Dashboard() {
                       ) : (
                         <ArrowDownRight className="h-4 w-4" />
                       )}
-                      {portfolioValue.change >= 0 ? "+" : ""}
-                      {portfolioValue.change}% ($
-                      {portfolioValue.changeAmount.toLocaleString()})
+                      <span className="whitespace-nowrap">
+                        {portfolioValue.change >= 0 ? "+" : ""}
+                        {portfolioValue.change}% ($
+                        {portfolioValue.changeAmount.toLocaleString()})
+                      </span>
                     </div>
                   </div>
 
