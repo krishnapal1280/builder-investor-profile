@@ -18,19 +18,19 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 213 93% 40%;
+    --primary: 0 100% 50%;
     --primary-foreground: 0 0% 98%;
 
     --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary-foreground: 0 100% 50%;
 
     --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted-foreground: 0 100% 50%;
 
-    --accent: 39 85% 50%;
+    --accent: 0 100% 50%;
     --accent-foreground: 0 0% 98%;
 
-    --success: 142 71% 45%;
+    --success: 0 100% 50%;
     --success-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
@@ -38,16 +38,16 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 213 93% 40%;
+    --ring: 0 100% 50%;
 
     --radius: 0.75rem;
 
-    --financial-blue: 213 93% 40%;
-    --financial-blue-light: 213 93% 95%;
-    --financial-green: 142 71% 45%;
-    --financial-green-light: 142 71% 95%;
-    --financial-orange: 39 85% 50%;
-    --financial-orange-light: 39 85% 95%;
+    --financial-blue: 0 100% 50%;
+    --financial-blue-light: 0 100% 95%;
+    --financial-green: 0 100% 50%;
+    --financial-green-light: 0 100% 95%;
+    --financial-orange: 0 100% 50%;
+    --financial-orange-light: 0 100% 95%;
     --financial-gray: 220 13% 91%;
     --financial-gray-dark: 215 25% 27%;
 
@@ -71,19 +71,19 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 213 93% 50%;
+    --primary: 0 100% 60%;
     --primary-foreground: 222.2 47.4% 11.2%;
 
     --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary-foreground: 0 100% 70%;
 
     --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted-foreground: 0 100% 70%;
 
-    --accent: 39 85% 60%;
+    --accent: 0 100% 60%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
-    --success: 142 71% 55%;
+    --success: 0 100% 60%;
     --success-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 62.8% 30.6%;
@@ -91,14 +91,14 @@
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 213 93% 50%;
+    --ring: 0 100% 60%;
 
-    --financial-blue: 213 93% 50%;
-    --financial-blue-light: 213 50% 15%;
-    --financial-green: 142 71% 55%;
-    --financial-green-light: 142 40% 15%;
-    --financial-orange: 39 85% 60%;
-    --financial-orange-light: 39 50% 15%;
+    --financial-blue: 0 100% 60%;
+    --financial-blue-light: 0 50% 15%;
+    --financial-green: 0 100% 60%;
+    --financial-green-light: 0 40% 15%;
+    --financial-orange: 0 100% 60%;
+    --financial-orange-light: 0 50% 15%;
     --financial-gray: 217.2 32.6% 17.5%;
     --financial-gray-dark: 215 25% 27%;
 
